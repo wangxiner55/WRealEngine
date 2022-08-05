@@ -13,33 +13,37 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Source">
-      <UniqueIdentifier>{b9f3e6e8-eb8e-4a33-ab00-ee065ec71695}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Source\WinMain\framwork.h">
+    <ClInclude Include="framework.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Resoure\resource.h">
+    <ClInclude Include="targetver.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Windows\WE_Window.h">
+    <ClInclude Include="Resource.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Windows\CWindow.h">
+    <ClInclude Include="WindowsProject1.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source\WinMain\WinMain.cpp">
+    <ClCompile Include="WindowsProject1.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Windows\WE_Window.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Windows\CWindow.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="WindowsProject1.rc">
+      <Filter>资源文件</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="small.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="WindowsProject1.ico">
+      <Filter>资源文件</Filter>
+    </Image>
   </ItemGroup>
 </Project>
