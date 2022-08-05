@@ -2,6 +2,7 @@
 #include "../../Resoure/resource.h"
 
 
+#define MAX_LOADSTRING 100
 
 #include <windows.h>
 
@@ -28,12 +29,12 @@ public:
 
         }
         if (pThis)
-        {
+    {
             return pThis->HandleMessage(uMsg, wParam, lParam);
-        }
-        
+    }
+
         else
-        {
+    {
 
             return DefWindowProc(hwnd, uMsg, wParam, lParam);
         }
@@ -52,7 +53,7 @@ public:
         HWND hWndParent = 0,
         HMENU hMenu = 0
     )
-    {
+{
         WNDCLASS wc = { 0 };
 
         wc.lpfnWndProc = DERIVED_TYPE::WindowProc;
@@ -67,7 +68,7 @@ public:
         );
 
         return (m_hwnd ? TRUE : FALSE);
-    }
+}
 
     HWND Window() const { return m_hwnd; }
 
@@ -81,7 +82,7 @@ protected:
 
 
 class MainWindow : public BaseWindow<MainWindow>
-{
+    {
 public:
     PCWSTR  ClassName() const { return L"Sample Window Class"; }
     LRESULT HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam);
@@ -89,11 +90,11 @@ public:
 
 
 int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE, PWSTR pCmdLine, int nCmdShow)
-{
+    {
     MainWindow win;
 
     if (!win.Create(L"Learn to Program Windows", WS_OVERLAPPEDWINDOW))
-    {
+        {
         return 0;
     }
 
@@ -121,12 +122,12 @@ LRESULT MainWindow::HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam)
         return 0;
 
     case WM_PAINT:
-    {
+        {
         PAINTSTRUCT ps;
         HDC hdc = BeginPaint(m_hwnd, &ps);
         FillRect(hdc, &ps.rcPaint, (HBRUSH)(COLOR_WINDOW + 1));
         EndPaint(m_hwnd, &ps);
-    }
+        }
     return 0;
 
     default:

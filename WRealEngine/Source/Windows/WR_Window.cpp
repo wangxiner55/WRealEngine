@@ -20,6 +20,20 @@ Base_Windows::WindowClass::WindowClass() noexcept
     wc.hIconSm = static_cast<HICON>(LoadImage(hInst, MAKEINTRESOURCE(IDI_ICON1), IMAGE_ICON, 16, 16, 0));
     RegisterClassEx(&wc);
 }
+
+//  ------------------------        -----------------------//
+Base_Windows::WindowClass::~WindowClass() noexcept
+{
+    UnregisterClass(GetName(), GetInstance());
+}
+const char* Base_Windows::WindowClass::GetName() noexcept
+{
+    return wndClassname;
+}
+inline HINSTANCE Base_Windows::WindowClass::GetInstance() noexcept
+{
+    return wndClass.hInst;
+}
 //  -------------   RegisterClass   ----------------------//
 
 
@@ -30,12 +44,15 @@ Base_Windows::Base_Windows(HWND hWnd) noexcept
 
 }
 
-BOOL Base_Windows::Create(PCWSTR lpWindowName, DWORD dwStyle, DWORD dwExStyle, int x, int y, int nWidth, int nHeight, HWND hWndParent, HMENU hMenu)
+BOOL Base_Windows::Create(LPCSTR lpWindowName, DWORD dwStyle, DWORD dwExStyle, int x, int y, int nWidth, int nHeight, HWND hWndParent, HMENU hMenu)
 {
-    hWnd = CreateWindowEx(
+    hWnd = CreateWindowExA(
         dwExStyle, WindowClass::GetName(), lpWindowName, dwStyle, x, y,
         nWidth, nHeight, hWndParent, hMenu, GetModuleHandle(NULL), this
     );
+
+    ShowWindow(hWnd, SW_SHOWDEFAULT);
+
 }
 
 Base_Windows::~Base_Windows() noexcept

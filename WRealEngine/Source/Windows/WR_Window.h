@@ -5,7 +5,7 @@
 class Base_Windows
 {
 
-//    ---------------    WindowClass     -----------------      //
+//    ---------------    RegisterWindowClass     -----------------      //
 private:
 	class WindowClass {
 
@@ -28,13 +28,13 @@ private:
 		static constexpr const char* wndClassname = "DX11";
 
 	};
-//    ---------------    WindowClass     -----------------      //
-
+//    ---------------    RegisterWindowClass     -----------------      //
+//    ---------------    CreateWindows&Show      -----------------      //
 public:
 
 	Base_Windows(HWND hWnd) noexcept;
 	BOOL Create(
-		PCWSTR lpWindowName,
+		LPCSTR lpWindowName,
 		DWORD dwStyle,
 		DWORD dwExStyle = 0,
 		int x = CW_USEDEFAULT,
@@ -56,5 +56,5 @@ private:
 	int height;
 	HWND hWnd;
 
-
+	//    ---------------    CreateWindows&Show      -----------------      //
 };
