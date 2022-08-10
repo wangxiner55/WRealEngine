@@ -9,14 +9,15 @@ PCWSTR MainWindow::ClassName() const
     return L"WE_Window";
 }
 
-DCWindow dcw;
+
 LRESULT MainWindow::HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
 
     switch (uMsg)
     {
     case WM_KEYDOWN:
-        dcw.dcW().Create(L"cww",WS_OVERLAPPEDWINDOW);
+        createWindow = std::make_unique<MainWindow>();
+        createWindow.get()->Create(L"s", WS_OVERLAPPEDWINDOW);
         break;
     case WM_DESTROY:
         PostQuitMessage(0);

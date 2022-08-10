@@ -93,6 +93,7 @@ public:
 
     
 private:
+    std::unique_ptr<MainWindow> createWindow;
 };
 
 
