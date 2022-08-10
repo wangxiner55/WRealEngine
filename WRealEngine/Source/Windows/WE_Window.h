@@ -90,6 +90,7 @@ public:
     PCWSTR  ClassName() const;
     LRESULT HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam);
     static std::optional<int> ProcessMsg();
+    
 };
 
 
