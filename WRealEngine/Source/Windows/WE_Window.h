@@ -1,6 +1,7 @@
 #pragma once
 #include <optional>
 #include <Windows.h>
+#include <memory>
 
 //-----------------------------Template BaseWindow Class----------------------------------//
 template <class WIN_TYPE>
@@ -86,11 +87,29 @@ protected:
 class MainWindow : public BaseWindow<MainWindow>
 {
 public:
-    MainWindow();
     PCWSTR  ClassName() const;
     LRESULT HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam);
     static std::optional<int> ProcessMsg();
+
+    
+private:
 };
 
+
+
+//----------------------------Delay Window -----------------------------------//
+class DCWindow
+{
+
+public:
+
+    void dcWindow();
+
+    MainWindow& dcW();
+
+private:
+
+    std::unique_ptr<MainWindow> createWindow = std::make_unique<MainWindow>();
+};
 
 
